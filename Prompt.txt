@@ -1,0 +1,57 @@
+Create a C++ program that reads a full line of text and searches for one valid IPv4 address, with an optional port number.
+
+The program must use this function exactly:
+
+```cpp
+bool extractIPv4(const std::string& str, unsigned long& outAddress, int& outPort);
+```
+
+The function should scan the input one character at a time. Treat any continuous sequence made only of digits, periods (`.`), and colons (`:`) as a possible candidate. Characters outside of those three types should be treated as garbage and skipped.
+
+A candidate must be validated as a complete token. Do not accept only part of a malformed candidate. For example, if a valid-looking IPv4 address has an extra period or colon directly attached to it, the entire candidate must be rejected rather than extracting the valid portion.
+
+A valid IPv4 address must contain exactly four octets separated by periods. Each octet must:
+
+- contain between 1 and 3 digits
+- have a numeric value from 0 through 255
+- not contain a leading zero unless the octet is exactly `0`
+
+The address may optionally be followed immediately by a port using the format `:port`. If a port is present, it must:
+
+- contain between 1 and 5 digits
+- have a value from 0 through 65535
+- not contain a leading zero unless the port is exactly `0`
+
+If a colon appears, the port must be completely valid. Otherwise, reject the entire candidate, including the IPv4 address.
+
+Do not use any built-in string-to-number conversion functions such as `stoi`, `atoi`, `strtol`, `sscanf`, or similar functions. Do not use regular expressions or networking functions such as `inet_pton`, `inet_aton`, or `inet_addr`. All numbers must be constructed manually by processing digit characters and updating the value mathematically.
+
+The function should return `true` when a valid address is found and `false` otherwise. On success, `outAddress` should contain the 32-bit numeric value of the IPv4 address and `outPort` should contain the port number, or `-1` if no port was included. On failure, set `outAddress` to `0` and `outPort` to `-1`.
+
+The program's `main` function should repeatedly prompt the user with:
+
+```text
+Enter a string (or 'END' to quit):
+```
+
+The program should continue reading full lines until the user enters exactly `END`. It should then print:
+
+```text
+Program terminated.
+```
+
+When a valid address is found, print:
+
+```text
+Extracted IPv4 address: A.B.C.D (decimal value: N, port: P)
+```
+
+where `P` is either the port number or the word `none`.
+
+If no valid IPv4 address is found, print:
+
+```text
+Invalid input: no valid IPv4 address found
+```
+
+Keep the parsing logic character-by-character and make sure malformed candidates such as incorrect octet counts, empty octets, values above the allowed ranges, leading zeros, extra colons, misplaced colons, or adjacent extra periods/colons are rejected.

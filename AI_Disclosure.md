@@ -1,7 +1,22 @@
-GAI Tool Used: 
+GAI Tool Used:
+
 I used ChatGPT (GPT-5.6 Sol) to assist with this assignment.
 
 Date consulted: September 27, 2026
+
+Prompts Used:
+
+The exact initial prompt used to generate the program is included in the repository as Prompt.txt.
+
+I also used the following follow-up prompts while testing and modifying the program:
+
+"Add a endl between inputs to make it look better"
+
+"Give me a bunch of edge cases"
+
+"Give me a select few test cases that covers most things"
+
+"and the matching output"
 
 AI-Generated vs. Student-Written Work
 
@@ -31,7 +46,7 @@ added an extra blank line between inputs to make the console output easier to re
 
 reviewed the final code and test results before submission
 
-Modifications Made
+Modifications Made:
 
 I made a small formatting change to the AI-generated program by adding an additional std::endl after each result so that there is a blank line between input attempts.
 
@@ -39,7 +54,7 @@ I also created and ran my own edge-case tests to verify that the parser followed
 
 No major parsing logic changes were required after testing.
 
-Verification Statement
+Verification Statement:
 
 I reviewed the submitted code and understand how the parsing process works, including candidate detection, manual digit accumulation, octet validation, port validation, address construction, and rejection of malformed complete tokens.
 
